@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 
 const Nav = ({ activeItem, setActiveItem }) => {
@@ -38,16 +37,22 @@ const Nav = ({ activeItem, setActiveItem }) => {
     <Nav>
       <NavTep>
         <NavTepItem onClick={activeItemHandler} $activeItem={activeItem}>
-          차은우
+          권혁우 튜터님
         </NavTepItem>
         <NavTepItem onClick={activeItemHandler} $activeItem={activeItem}>
-          송강
+          김병연 튜터님
         </NavTepItem>
         <NavTepItem onClick={activeItemHandler} $activeItem={activeItem}>
-          김유정
+          박가현 튜터님
         </NavTepItem>
         <NavTepItem onClick={activeItemHandler} $activeItem={activeItem}>
-          한소희
+          윤창식 튜터님
+        </NavTepItem>
+        <NavTepItem onClick={activeItemHandler} $activeItem={activeItem}>
+          이재상 튜터님
+        </NavTepItem>
+        <NavTepItem onClick={activeItemHandler} $activeItem={activeItem}>
+          최원장 튜터님
         </NavTepItem>
       </NavTep>
     </Nav>

@@ -20,8 +20,8 @@ const Header = () => {
 
   return (
     <HeaderBox>
-      <HeaderName>안녕하세요 팬레터 콜렉션 입니다.</HeaderName>
-      <p>초코 붕어싸만코 고트다. 반박시 붕어신</p>
+      <HeaderName>★네베캠 4기 react 튜터님 팬레터함 입니다★</HeaderName>
+      <p>어렵다 어려워...ㅜㅜ 이게 맞나?</p>
     </HeaderBox>
   );
 };

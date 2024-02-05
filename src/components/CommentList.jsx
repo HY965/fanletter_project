@@ -1,17 +1,24 @@
 import CommentItem from "./CommentItem";
-import fakeData from "../shared/fakeData.json";
+import { CardLists } from "../style/CommentListStyle";
+import { useNavigate } from "react-router-dom";
 
-const CommentList = ({ activeItem }) => {
+const CommentList = ({ activeItem, letter }) => {
+  const navigate = useNavigate();
+  const navlist = () => {};
   return (
-    <>
-      {fakeData
-        .filter((item) => item.writedTo === activeItem)
-        .map((item) => (
-          <div key={item.id}>
-            <CommentItem item={item} />
+    <CardLists
+      onClick={() => {
+        navigate(`/detail/${letter.id}`);
+      }}
+    >
+      {letter
+        .filter((letter) => letter.writedTo === activeItem)
+        .map((letter) => (
+          <div key={letter.id}>
+            <CommentItem letter={letter} />
           </div>
         ))}
-    </>
+    </CardLists>
   );
 };
 

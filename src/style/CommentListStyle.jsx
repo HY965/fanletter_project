@@ -8,6 +8,7 @@ export const CardLists = styled.section`
   padding: 1rem;
   margin-top: 20px;
   width: 650px;
+  cursor: pointer;
 `;
 
 export const UserInfoWrapper = styled.article`

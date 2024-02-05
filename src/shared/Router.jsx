@@ -1,5 +1,5 @@
 import Home from "pages/Home";
-import Detail from "pages/Detail";
+import Detail01 from "pages/Detail";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export default function Router() {
@@ -7,7 +7,7 @@ export default function Router() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/detail/:id" element={<Detail01 />} />
       </Routes>
     </BrowserRouter>
   );

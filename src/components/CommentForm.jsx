@@ -2,19 +2,19 @@ import uuid from "react-uuid";
 import { useState } from "react";
 import {
   InputWrapper,
-  InputList,
   InputNameAndComment,
   InputTitle,
   InputInfo,
   InputCommentInfo,
   AddbuttonWrapper,
   Addbutton,
+  Form,
 } from "../style/CommentFormStyle";
-
-const CommentForm = ({ activeItem, thanksComments, setThanksComments }) => {
+// 이벤트 설정
+const CommentForm = ({ letter, setLetter }) => {
   const [nickname, setNickname] = useState("");
   const [content, setContent] = useState("");
-  const [createdAt, setCreatedAt] = useState("");
+  const [tutors, setTutors] = useState("권혁우 튜터님");
 
   const nicknameChangeHandler = (event) => {
     setNickname(event.target.value);
@@ -22,30 +22,32 @@ const CommentForm = ({ activeItem, thanksComments, setThanksComments }) => {
   const contentChangeHandler = (event) => {
     setContent(event.target.value);
   };
+  const selectActorChangeHandler = (event) => {
+    setTutors(event.target.value);
+  };
 
+  // 댓글추가하기
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!nickname || !content) {
-      return alert("필수 값을 입력하세요");
+      return alert("닉네임과 내용을 입력하세요");
     }
-
-    const newComment = {
-      id: uuid(),
+    const newLetter = {
+      createdAt: new Date(),
       nickname,
-      content,
-      createdAt,
       avatar: null,
-      writedTo: activeItem,
+      content,
+      writedTo: tutors,
+      id: uuid(),
     };
-    setThanksComments((prevComment) => [...thanksComments, newComment]);
-
+    setLetter((prevLetter) => [...prevLetter, newLetter]);
     e.target.reset();
   };
 
   return (
     <InputWrapper>
-      <InputList onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <InputNameAndComment>
           <InputTitle>닉네임:</InputTitle>
           <InputInfo
@@ -54,6 +56,7 @@ const CommentForm = ({ activeItem, thanksComments, setThanksComments }) => {
             type="text"
             placeholder="닉네임을 적어주세요."
             name="user-name"
+            maxLength={15}
           />
         </InputNameAndComment>
         <InputNameAndComment>
@@ -62,23 +65,26 @@ const CommentForm = ({ activeItem, thanksComments, setThanksComments }) => {
             onChange={contentChangeHandler}
             value={content}
             type="text"
-            placeholder="내용을 적어주세요."
+            placeholder="60자 이내로 내용을 적어주세요."
             name="comment"
+            maxLength={60}
           />
         </InputNameAndComment>
         <InputNameAndComment>
           <p>누구에게 보내실 건가요?</p>
-          <select>
-            <option>차은우</option>
-            <option>송강</option>
-            <option>김유정</option>
-            <option>한소희</option>
+          <select onChange={selectActorChangeHandler}>
+            <option>권혁우 튜터님</option>
+            <option>김병연 튜터님</option>
+            <option>박가현 튜터님</option>
+            <option>윤창식 튜터님</option>
+            <option>이재상 튜터님</option>
+            <option>최원장 튜터님</option>
           </select>
         </InputNameAndComment>
         <AddbuttonWrapper>
           <Addbutton type="submit">팬레터 등록</Addbutton>
         </AddbuttonWrapper>
-      </InputList>
+      </Form>
     </InputWrapper>
   );
 };

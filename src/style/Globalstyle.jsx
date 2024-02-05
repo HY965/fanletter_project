@@ -6,9 +6,7 @@ ${reset}
 *{
     box-sizing: border-box;
 }
-body{
-    
-    max-width: none;
+body{  
     display: flex;
     justify-content: center;
 }

@@ -1,5 +1,4 @@
 import {
-  CardLists,
   UserInfo,
   UserImg,
   UserComment,
@@ -7,30 +6,32 @@ import {
   UserInfoWrapper,
 } from "../style/CommentListStyle";
 
-const CommentItem = ({ item }) => {
-  // const omissionContent = (item) => {
-  //   const contentLength = 20;
-  //   if (item.content > contentLength) {
-  //     item.content = item.content.substr(0, contentLength - 2) + "...";
-  //   }
-  //   return;
-  // };
+const CommentItem = ({ letter }) => {
+  // kR로 날짜표시
+  // const specificDate = new Date(item.createdAt);
+  // specificDate.toLocaleDateString();
+  const todayTime = new Date(letter.createdAt).toLocaleDateString("ko-KR", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  });
 
   return (
-    <CardLists>
-      <UserInfoWrapper>
-        <UserInfo>
-          <UserImg>
-            <img src={item.avatar} alt="유저 프로필 이미지" />
-          </UserImg>
-          <UserName>
-            <p>{item.nickname}</p>
-            <p>{item.createdAt}</p>
-          </UserName>
-        </UserInfo>
-        <UserComment>{item.content}</UserComment>
-      </UserInfoWrapper>
-    </CardLists>
+    <UserInfoWrapper>
+      <UserInfo>
+        <UserImg>
+          <img src={letter.avatar} alt="유저 프로필 이미지" />
+        </UserImg>
+        <UserName>
+          <p>{letter.nickname}</p>
+          <p>{todayTime}</p>
+        </UserName>
+      </UserInfo>
+      <UserComment>{letter.content}</UserComment>
+    </UserInfoWrapper>
   );
 };
 

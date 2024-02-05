@@ -8,17 +8,17 @@ export const InputWrapper = styled.article`
   justify-content: center;
 `;
 
-export const InputList = styled.form`
+export const Form = styled.form`
   display: flex;
-  background-color: #ccc;
   flex-direction: column;
   padding: 1.5rem;
   gap: 10px;
-  width: 500px;
+  width: 650px;
 `;
 
 export const InputNameAndComment = styled.div`
   display: flex;
+  align-items: center;
   gap: 13px;
 `;
 
@@ -36,7 +36,7 @@ export const InputInfo = styled.input`
 
 export const InputCommentInfo = styled.input`
   width: 100%;
-  height: 50px;
+  height: 80px;
   padding: 6px 10px;
 `;
 
