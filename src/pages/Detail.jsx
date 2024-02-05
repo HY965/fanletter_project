@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Detail() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const Profile = styled.div`
     background-color: #ccc;
     width: 400px;
@@ -21,6 +21,13 @@ function Detail() {
         <button>수정</button>
         <button>삭제</button>
       </article>
+      <button
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        main으로 가기
+      </button>
     </>
   );
 }
