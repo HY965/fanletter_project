@@ -14,6 +14,7 @@ function Detail({ letter, setLetter }) {
     align-items: center;
     /* height: 100vh; */
     border: 2px solid red;
+    background-color: black;
   `;
 
   const MainBtnWrapper = styled.div`
@@ -47,8 +48,11 @@ function Detail({ letter, setLetter }) {
   const UserInfo = styled.div`
     background-color: #004caf;
     padding: 1rem;
-
     border: 2px solid red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
   `;
 
   const ButtonWrapper = styled.div`
@@ -82,8 +86,8 @@ function Detail({ letter, setLetter }) {
       <DetailWrapper>
         <UserInfo>
           <UserImg src={avatar} />
-          <p>닉네임: {nickname}</p>
-          <p>시간: {createdAt}</p>
+          <p>{nickname}</p>
+          <p>{createdAt}</p>
         </UserInfo>
         <p>TO: {writedTo}</p>
         <UserComment>{content}</UserComment>
