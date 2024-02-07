@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import tutor01 from "assets/tutor01.png";
 
 const CommentProfile = ({ activeItem, letter }) => {
   // const [profile, setProtile] = useState("");
@@ -14,11 +15,11 @@ const CommentProfile = ({ activeItem, letter }) => {
     display: flex;
   `;
 
-  const Img = styled.img`
-    height: 200px;
-    width: 200px;
-    overflow: hidden;
-  `;
+  // const Img = styled.img`
+  //   height: 200px;
+  //   width: 200px;
+  //   overflow: hidden;
+  // `;
 
   const Title = styled.h2`
     font-weight: bold;
@@ -32,7 +33,7 @@ const CommentProfile = ({ activeItem, letter }) => {
       <ProfileInfo>
         {filterProfile.map((letter) => (
           <div key={letter.id} letter={letter}>
-            <Img src={letter.profile} alt="튜터님 프로필사진" />
+            <img src={tutor01} alt="튜터님 프로필사진" />
             <Title>한마디...하슈</Title>
           </div>
         ))}
