@@ -7,12 +7,6 @@ const CommentList = ({ activeItem, letter }) => {
     (letter) => letter.writedTo === activeItem
   );
 
-  const Sing = styled.p`
-    color: white;
-    padding: 1rem;
-    text-align: center;
-  `;
-
   return (
     <CardLists>
       {filterLetter.length === 0 ? (
@@ -26,3 +20,9 @@ const CommentList = ({ activeItem, letter }) => {
 };
 
 export default CommentList;
+
+const Sing = styled.p`
+  color: white;
+  padding: 1rem;
+  text-align: center;
+`;

@@ -1,52 +1,41 @@
 import styled from "styled-components";
-import tutor01 from "assets/tutor01.png";
-import { useState } from "react";
 
-const CommentProfile = ({ activeItem, letter, id, setLetter }) => {
-  const [profile, setProtile] = useState("");
-  const filterProfile = letter.filter(
-    (letter) => letter.writdeTo === activeItem
+// import { useState } from "react";
+
+const CommentProfile = ({ activeItem, letter, setLetter, setActiveItem }) => {
+  const filterActionImg = letter.filter(
+    (letter) => letter.writedTo === activeItem
   );
-
-  const eimgMap = () => {
-    const newLetter = letter.map((letter) => {
-      if (letter.id === id) {
-        return { ...letter, profile: tutor01 };
-      }
-      return letter;
-    });
-    setLetter(newLetter);
-  };
 
   const ProfileInfo = styled.div`
     background-color: #ccc;
     width: 650px;
-    height: 200px;
+    /* height: 200px; */
+    padding: 1rem;
     margin-top: 20px;
-    display: flex;
+    border-radius: 10px;
   `;
 
-  // const Img = styled.img`
-  //   height: 200px;
-  //   width: 200px;
-  //   overflow: hidden;
-  // `;
+  const Img = styled.img`
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+  `;
 
   const Title = styled.h2`
     font-weight: bold;
     font-size: 20px;
-    display: flex;
-    align-items: center;
+    padding: 1rem;
+    margin: 0 auto;
   `;
-  //key={letter.id} letter={letter}
+
   return (
     <>
       <ProfileInfo>
-        {filterProfile.map((letter) => (
-          <div>
-            {/* <img src={letter.profile} alt="튜터님 프로필사진" /> */}
-            {/* <Title>한마디...하슈</Title> */}
-            <p>안녕하세요</p>
+        {filterActionImg.map((letter) => (
+          <div key={letter.Profile} letter={letter}>
+            <Img src={letter.Profile} alt="튜터님 프로필사진" />
+            <Title>{letter.writedTo}에게 한마디 ... 남겨보세요!</Title>
           </div>
         ))}
       </ProfileInfo>
