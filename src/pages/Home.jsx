@@ -3,13 +3,10 @@ import Nav from "../components/Nav";
 import CommentForm from "../components/CommentForm";
 import CommentList from "../components/CommentList";
 import { useState } from "react";
-import fakeData from "../shared/fakeData.json";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+import CommentProfile from "../components/CommentProfile";
 
-const Home = () => {
-  const navigate = useNavigate();
-  const [letter, setLetter] = useState(fakeData);
+const Home = ({ letter, setLetter }) => {
   const [activeItem, setActiveItem] = useState("권혁우 튜터님");
 
   const Mainstyle = styled.main`
@@ -24,6 +21,7 @@ const Home = () => {
       <Nav activeItem={activeItem} setActiveItem={setActiveItem} />
       <Mainstyle>
         <CommentForm setLetter={setLetter} />
+        <CommentProfile activeItem={activeItem} letter={letter} />
         <CommentList activeItem={activeItem} letter={letter} />
       </Mainstyle>
     </>

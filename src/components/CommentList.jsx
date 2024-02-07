@@ -1,23 +1,17 @@
 import CommentItem from "./CommentItem";
 import { CardLists } from "../style/CommentListStyle";
-import { useNavigate } from "react-router-dom";
 
 const CommentList = ({ activeItem, letter }) => {
-  const navigate = useNavigate();
-  const navlist = () => {};
+  const filterLetter = letter.filter(
+    (letter) => letter.writedTo === activeItem
+  );
+
   return (
-    <CardLists
-      onClick={() => {
-        navigate(`/detail/${letter.id}`);
-      }}
-    >
-      {letter
-        .filter((letter) => letter.writedTo === activeItem)
-        .map((letter) => (
-          <div key={letter.id}>
-            <CommentItem letter={letter} />
-          </div>
-        ))}
+    <CardLists>
+      {filterLetter.length === 0 ? <p>없어용 추가해주세요!</p> : null}
+      {filterLetter.map((letter) => (
+        <CommentItem key={letter.id} letter={letter} />
+      ))}
     </CardLists>
   );
 };

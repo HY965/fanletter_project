@@ -5,11 +5,11 @@ import {
   UserName,
   UserInfoWrapper,
 } from "../style/CommentListStyle";
+import { useNavigate } from "react-router-dom";
 
 const CommentItem = ({ letter }) => {
+  const navigate = useNavigate();
   // kR로 날짜표시
-  // const specificDate = new Date(item.createdAt);
-  // specificDate.toLocaleDateString();
   const todayTime = new Date(letter.createdAt).toLocaleDateString("ko-KR", {
     year: "numeric",
     month: "long",
@@ -20,7 +20,7 @@ const CommentItem = ({ letter }) => {
   });
 
   return (
-    <UserInfoWrapper>
+    <UserInfoWrapper onClick={() => navigate(`/detail/${letter.id}`)}>
       <UserInfo>
         <UserImg>
           <img src={letter.avatar} alt="유저 프로필 이미지" />
