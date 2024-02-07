@@ -65,9 +65,9 @@ const CommentForm = ({ letter, setLetter }) => {
             onChange={contentChangeHandler}
             value={content}
             type="text"
-            placeholder="60자 이내로 내용을 적어주세요."
+            placeholder="200자 이내로 내용을 적어주세요."
             name="comment"
-            maxLength={60}
+            maxLength={200}
           />
         </InputNameAndComment>
         <InputNameAndComment>

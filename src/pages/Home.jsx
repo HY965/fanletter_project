@@ -9,19 +9,17 @@ import CommentProfile from "../components/CommentProfile";
 const Home = ({ letter, setLetter }) => {
   const [activeItem, setActiveItem] = useState("권혁우 튜터님");
 
-  const Mainstyle = styled.main`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  `;
-
   return (
     <>
       <Header />
       <Nav activeItem={activeItem} setActiveItem={setActiveItem} />
       <Mainstyle>
         <CommentForm setLetter={setLetter} />
-        <CommentProfile activeItem={activeItem} letter={letter} />
+        <CommentProfile
+          activeItem={activeItem}
+          letter={letter}
+          setLetter={setLetter}
+        />
         <CommentList activeItem={activeItem} letter={letter} />
       </Mainstyle>
     </>
@@ -29,3 +27,9 @@ const Home = ({ letter, setLetter }) => {
 };
 
 export default Home;
+
+const Mainstyle = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;

@@ -1,11 +1,22 @@
 import styled from "styled-components";
 import tutor01 from "assets/tutor01.png";
+import { useState } from "react";
 
-const CommentProfile = ({ activeItem, letter }) => {
-  // const [profile, setProtile] = useState("");
+const CommentProfile = ({ activeItem, letter, id, setLetter }) => {
+  const [profile, setProtile] = useState("");
   const filterProfile = letter.filter(
     (letter) => letter.writdeTo === activeItem
   );
+
+  const eimgMap = () => {
+    const newLetter = letter.map((letter) => {
+      if (letter.id === id) {
+        return { ...letter, profile: tutor01 };
+      }
+      return letter;
+    });
+    setLetter(newLetter);
+  };
 
   const ProfileInfo = styled.div`
     background-color: #ccc;
@@ -27,14 +38,15 @@ const CommentProfile = ({ activeItem, letter }) => {
     display: flex;
     align-items: center;
   `;
-
+  //key={letter.id} letter={letter}
   return (
     <>
       <ProfileInfo>
         {filterProfile.map((letter) => (
-          <div key={letter.id} letter={letter}>
-            <img src={tutor01} alt="튜터님 프로필사진" />
-            <Title>한마디...하슈</Title>
+          <div>
+            {/* <img src={letter.profile} alt="튜터님 프로필사진" /> */}
+            {/* <Title>한마디...하슈</Title> */}
+            <p>안녕하세요</p>
           </div>
         ))}
       </ProfileInfo>
