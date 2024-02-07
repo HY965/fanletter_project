@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-// import { useState } from "react";
-
-const CommentProfile = ({ activeItem, letter, setLetter, setActiveItem }) => {
+const CommentProfile = ({ activeItem, letter }) => {
   const filterActionImg = letter.filter(
     (letter) => letter.writedTo === activeItem
   );

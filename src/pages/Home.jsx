@@ -15,11 +15,7 @@ const Home = ({ letter, setLetter }) => {
       <Nav activeItem={activeItem} setActiveItem={setActiveItem} />
       <Mainstyle>
         <CommentForm setLetter={setLetter} />
-        <CommentProfile
-          activeItem={activeItem}
-          letter={letter}
-          setLetter={setLetter}
-        />
+        <CommentProfile activeItem={activeItem} letter={letter} />
         <CommentList activeItem={activeItem} letter={letter} />
       </Mainstyle>
     </>
